@@ -16,9 +16,9 @@
         <sly data-sly-list.apidata="${model.productlist}">
             <div class="flex-item item-no-${apidata.id}">
                 <img class="product-image" src="${apidata.image}">
-                <span>"${apidata.title}"</span><br>
-                <p class="product-description">"${apidata.description}"</p>
-                <span>"&#8377 ${apidata.price}"</span>
+                <span>${apidata.title}</span><br>
+                <p class="product-description">${apidata.description}</p>
+                <span>&#36 ${apidata.price}</span>
             </div>
         </sly>
     </div>

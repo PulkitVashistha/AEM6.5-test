@@ -1,0 +1,25 @@
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    font-size: 25px;
+    width: 30%;
+    text-align: center;
+}
+
+.product-image{
+    width: 100%;
+    object-fit: contain;
+    max-height: 250px;
+}
+
+.product-description{
+    font-size: 20px;
+}
+

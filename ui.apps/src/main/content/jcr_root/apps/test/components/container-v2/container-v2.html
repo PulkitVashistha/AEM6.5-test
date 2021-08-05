@@ -1,0 +1,52 @@
+<div data-sly-use.model="com.encora.test.core.models.HelloWorldModel">
+    <sly data-sly-use.container="com.adobe.cq.wcm.core.components.models.LayoutContainer">
+        <sly data-sly-test.responsive="${container.layout == 'RESPONSIVE_GRID'}"
+             data-sly-use.responsiveGridTemplate="responsiveGrid.html"
+             data-sly-call="${responsiveGridTemplate.responsiveGrid @ container=container}">
+            <div class="${linkData.className}" data-sly-test="${!editMode}">
+                <span data-sly-test.sprite="${linkData.spriteClass}" class="${sprite}"></span>
+                <a href="${linkData.linkUrl || 'javascript:void(0)'}">${linkData.linkText}</a>
+            </div>
+        </sly>
+        <sly data-sly-test.simple="${!responsive}"
+             data-sly-use.simpleTemplate="simple.html"
+             data-sly-call="${simpleTemplate.simple @ container=container}"></sly>
+    </sly>
+    <div class="flex-container">
+        <sly data-sly-list.apidata="${model.productlist}">
+            <div class="flex-item item-no-${apidata.id}">
+                <img class="product-image" src="${apidata.image}">
+                <span>"${apidata.title}"</span><br>
+                <p class="product-description">"${apidata.description}"</p>
+                <span>"&#8377 ${apidata.price}"</span>
+            </div>
+        </sly>
+    </div>
+</div>
+<style>
+    .flex-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        flex-wrap: wrap;
+    }
+
+    .flex-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        width: 30%;
+        text-align: center;
+    }
+
+    .product-image{
+        width: 100%;
+        object-fit: contain;
+        max-height: 250px;
+    }
+
+    .product-description{
+        font-size: 20px;
+    }
+</style>

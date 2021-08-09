@@ -52,7 +52,7 @@ public class HttpServiceImpl implements  HttpService {
 //        }
         HttpClient httpClient = HttpClientBuilder.create()
                 .build();;
-        HttpGet getRequest = new HttpGet("https://fakestoreapi.com/products");
+        HttpGet getRequest = new HttpGet(url);
         getRequest.addHeader("accept", "application/json");
         HttpResponse response = httpClient.execute(getRequest);
         if (response.getStatusLine().getStatusCode() != 200) {

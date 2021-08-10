@@ -60,7 +60,7 @@ public class HelloWorldModel {
     private HttpService httpService;
 
     @ValueMapValue
-    private String url;
+    private String category;
 
     @ValueMapValue
     private String count;
@@ -70,10 +70,11 @@ public class HelloWorldModel {
     @PostConstruct
     protected void init() {
         try {
-            logger.debug("url = {} ............ count = {}",url,count);
-            if(url!=null){
+            logger.debug("category = {} ............ count = {}",category,count);
+            if(category!=null){
+                String url = "https://fakestoreapi.com";
                 if(count!=null){
-                    url = url + "?limit="+count;
+                    url = url+ "/" + category + "?limit="+count;
                 }
                 logger.debug("url = {}",url);
                 String response = httpService.callServiceApi("", url);
